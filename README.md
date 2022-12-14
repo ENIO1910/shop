@@ -1,4 +1,4 @@
-## About Project
+# About Project
 Phone store application based on laravel framework
 
 
