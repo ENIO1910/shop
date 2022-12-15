@@ -61,7 +61,9 @@
 
 @endsection
 @section('javascript')
-    const deleteUrl = "{{url('products')}}/";
+    const deleteUrl = "{{url('products')}}/"
+    const confirmDelete = "{{__('translate.messages.delete_confirm')}}";
+
 @endsection
 @section('js-files')
     @vite('resources/js/delete.js')

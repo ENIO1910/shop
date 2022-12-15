@@ -37,6 +37,7 @@
 @endsection
 @section('javascript')
     const deleteUrl = "{{url('users')}}/";
+    const confirmDelete = "{{__('shop.messages.delete_confirm')}}";
 @endsection
 @section('js-files')
     @vite('resources/js/delete.js')
