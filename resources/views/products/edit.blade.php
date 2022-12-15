@@ -29,7 +29,7 @@
                                 <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" name="description">{{ $product->description }}</textarea>
+                                    <textarea id="description" maxlength="1500" class="form-control @error('description') is-invalid @enderror" required name="description">{{ $product->description }}</textarea>
 
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -71,17 +71,22 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Image') }}</label>
 
                                 <div class="col-md-6">
-                                    <input type="file" id="image" class="form-control" name="image">
+                                    <input type="file" id="image" class="form-control @error('image') is-invalid @enderror" name="image">
 
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                             </div>
-
+                            @isset($product->image_path)
                             <div class="row mb-3">
                                 <div class="col-md-12">
-                                    <img src="{{asset('storage/' . $product->image_path)}}" height="250px" width="250px">
+                                    <img src="{{asset('storage/' . $product->image_path)}}" height="250px" width="250px" alt="Product image">
                                 </div>
                             </div>
-
+                            @endif
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
